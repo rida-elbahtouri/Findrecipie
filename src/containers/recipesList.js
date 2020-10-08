@@ -1,37 +1,75 @@
 import React from 'react';
 import Axios from 'axios';
 import FoodCard from '../components/FoodCard';
-export default class RecipesList extends React.Component {
+import FilterMeals from '../components/FilterMeals';
+import { connect } from 'react-redux';
+import { GetRecipe } from '../actions/index';
+class RecipesList extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       recipe: [],
+      category: [],
     };
   }
   componentDidMount() {
-    const baseUrl =
-      'https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood';
+    const baseUrl = 'https://www.themealdb.com/api/json/v1/1/';
 
-    Axios.get(baseUrl).then((res) => {
-      console.log(res.data.meals);
+    Axios.get(`${baseUrl}/filter.php?c=${this.props.filter}`).then((res) => {
       this.setState({ recipe: res.data.meals });
+    });
+
+    Axios.get(`${baseUrl}/categories.php`).then((res) => {
+      this.setState({ category: res.data.categories });
+      console.log(res.data.categories);
     });
   }
 
-  diplaymeals = () => {
-    // if (this.state.recipe.length > 0) {
-    const meals = this.state.recipe.map((meal) => {
-      return <FoodCard img={meal.strMealThumb} meal={meal.strMeal} />;
+  handlechanges = (e) => {
+    this.props.GetRecipe(e.target.value);
+    const baseUrl = 'https://www.themealdb.com/api/json/v1/1/';
+    Axios.get(`${baseUrl}/filter.php?c=${this.props.filter}`).then((res) => {
+      this.setState({ recipe: res.data.meals });
     });
-    // } else {
-    //   return <h1>pendding</h1>;
-    // }
+  };
+  diplaymeals = () => {
+    let meals = null;
+    if (this.props.filter !== 'all') {
+      meals = this.state.recipe.map((meal) => {
+        return <FoodCard img={meal.strMealThumb} meal={meal.strMeal} />;
+      });
+    } else {
+      return <h1>Please select a category you want</h1>;
+    }
 
     return meals;
   };
 
   render() {
-    return <div className="list">{this.diplaymeals()}</div>;
+    return (
+      <div>
+        <FilterMeals
+          handlechanges={this.handlechanges}
+          category={this.state.category}
+        />
+        <div className="list">{this.diplaymeals()}</div>
+      </div>
+    );
   }
 }
+
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    filter: state,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  GetRecipe: (cat) => {
+    dispatch(GetRecipe(cat));
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(RecipesList);

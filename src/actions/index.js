@@ -1,6 +1,6 @@
 export const GetRecipe = (data) => {
   return {
-    action: 'GETRECIPE',
+    type: 'GETRECIPE',
     payload: data,
   };
 };

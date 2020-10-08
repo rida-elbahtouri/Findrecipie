@@ -1,5 +1,12 @@
 .list {
-  height: 30px;
-  background-color: aqua;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
+
+.list img {
+  width: 100%;
 }
 /*# sourceMappingURL=index.css.map */
