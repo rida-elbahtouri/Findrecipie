@@ -1,4 +1,4 @@
-const recipeReducer = (state = 'Seafood', action) => {
+const recipeReducer = (state = 'all', action) => {
   switch (action.type) {
     case 'GETRECIPE':
       return action.payload;

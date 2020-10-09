@@ -2,9 +2,9 @@ import React from 'react';
 
 const FoodCard = (props) => {
   return (
-    <div>
-      <img src={props.img} />
-      <h1> {props.meal} </h1>
+    <div className="foodcard" onClick={() => props.gtdetails(props.id)}>
+      <img alt={props.meal} src={props.img} />
+      <h3> {props.meal} </h3>
     </div>
   );
 };

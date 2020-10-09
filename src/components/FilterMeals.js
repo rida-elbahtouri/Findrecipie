@@ -2,8 +2,9 @@ import React from 'react';
 
 const FilterMeals = (props) => {
   return (
-    <div>
-      <select onChange={props.handlechanges}>
+    <div className="filter-form">
+      <h3>Chose a Category</h3>
+      <select className="filter" onChange={props.handlechanges}>
         <option value="all" key="all">
           {' '}
           ---{' '}
