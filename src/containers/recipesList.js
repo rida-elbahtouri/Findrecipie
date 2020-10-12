@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import FoodCard from '../components/FoodCard';
 import FilterMeals from '../components/FilterMeals';
 import MealDetails from '../components/MealDetails';
-import { GetRecipe } from '../actions/index';
+import GetRecipe from '../actions/index';
 import Welcome from '../components/Welcome';
 
 class RecipesList extends React.Component {
@@ -58,7 +58,7 @@ class RecipesList extends React.Component {
       return (
         <MealDetails
           ingredient={ingredient}
-          details={details}
+          details={details[0]}
           colsedetails={this.colsedetails}
         />
       );

@@ -7,17 +7,18 @@ import FoodCard from '../components/FoodCard';
 afterEach(cleanup);
 
 it('render the img in the dom', () => {
-  const { getByTestId } = render(<FoodCard meal="meal name" img="img url" id={1} gtdetails={console.log} />);
+  const { getByTestId } = render(<FoodCard meal="meal name" img="img url" id={1} />);
   expect(getByTestId('img')).toBeInTheDocument();
 });
 
 it('have a function the run after you click the div', () => {
+  // eslint-disable-next-line
   render(<FoodCard meal="meal name" img="img url" id={1} gtdetails={console.log} />);
   const gtdetails = jest.fn();
   gtdetails('hello');
   expect(gtdetails.mock.calls[0][0]).toBe('hello');
 });
 it('render the img in the dom', () => {
-  const { getByTestId } = render(<FoodCard meal="meal name" img="img url" id={1} gtdetails={console.log} />);
+  const { getByTestId } = render(<FoodCard meal="meal name" img="img url" id={1} />);
   expect(getByTestId('meal')).toHaveTextContent('meal name');
 });

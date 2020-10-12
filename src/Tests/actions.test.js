@@ -1,4 +1,4 @@
-import { GetRecipe } from '../actions';
+import GetRecipe from '../actions';
 
 describe('actions', () => {
   it('should get recipe data', () => {
