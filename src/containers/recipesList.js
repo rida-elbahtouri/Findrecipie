@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import FoodCard from '../components/FoodCard';
 import FilterMeals from '../components/FilterMeals';
-import MealDetails from '../components/MealDetails';
 import GetRecipe from '../actions/index';
 import Welcome from '../components/Welcome';
 
@@ -15,8 +14,6 @@ class RecipesList extends React.Component {
     this.state = {
       recipe: [],
       category: [],
-      details: [],
-      ingredient: [],
     };
   }
 
@@ -31,18 +28,6 @@ class RecipesList extends React.Component {
     this.setState({ recipe: [] });
     const { GetRecipe } = this.props;
     GetRecipe(e.target.value);
-  };
-
-  // eslint-disable-next-line
-  displaydetails = () => {
-    const { details } = this.state;
-    if (details.length > 0) {
-      const { ingredient } = this.state;
-    }
-  };
-
-  colsedetails = () => {
-    this.setState({ details: [], ingredient: [] });
   };
 
   diplaymeals = () => {
@@ -79,7 +64,6 @@ class RecipesList extends React.Component {
           category={category}
         />
         <div className="list">{this.diplaymeals()}</div>
-        {this.displaydetails()}
       </div>
     );
   }

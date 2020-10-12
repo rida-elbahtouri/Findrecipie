@@ -6,9 +6,9 @@ import { connect } from 'react-redux';
 import { getDetails } from '../actions';
 
 const MealDetails = props => {
-  console.log(props);
+  // eslint-disable-next-line
+  const { ingredient, details } = props.details;
   const { id } = useParams();
-  console.log(id);
   const gtdetails = id => {
     const baseUrl = 'https://www.themealdb.com/api/json/v1/1/';
     Axios.get(`${baseUrl}/lookup.php?i=${id}`).then(res => {
@@ -28,11 +28,12 @@ const MealDetails = props => {
   const back = () => {
     prepage.goBack();
   };
+
+  // eslint-disable-next-line
   const renderhelper = (ingredient, details) => {
     if (ingredient) {
       return (
         <div className="mealdetails">
-          {/*  */}
           <button onClick={back} type="button">
             X
           </button>
@@ -65,7 +66,7 @@ const MealDetails = props => {
   return (
     <div>
       {gtdetails(id)}
-      {renderhelper(props.details.ingredient, props.details.details)}
+      {renderhelper(ingredient, details)}
     </div>
   );
 };
@@ -81,6 +82,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 MealDetails.propTypes = {
+  getDetails: PropTypes.func.isRequired,
   // eslint-disable-next-line
   details: PropTypes.object.isRequired,
   // eslint-disable-next-line
