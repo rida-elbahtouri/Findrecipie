@@ -5,8 +5,8 @@ describe('actions', () => {
     const data = [{meal:"meals"}]
     const expectedAction = {
       type: 'GETRECIPE',
-      data
+      payload:data
     }
-    expect(actions.GetRecipe(data)).toEqual(expectedAction)
+    expect(GetRecipe(data)).toEqual(expectedAction)
   })
 })

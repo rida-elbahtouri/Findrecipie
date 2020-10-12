@@ -6,3 +6,4 @@
 [1009/130215.468:ERROR:exception_snapshot_win.cc(99)] thread ID 21932 not found in process
 [1009/130215.468:ERROR:exception_snapshot_win.cc(99)] thread ID 17936 not found in process
 [1009/133814.607:ERROR:directory_reader_win.cc(43)] FindFirstFile: Le chemin d’accès spécifié est introuvable. (0x3)
+[1012/111643.680:ERROR:directory_reader_win.cc(43)] FindFirstFile: Le chemin d’accès spécifié est introuvable. (0x3)
