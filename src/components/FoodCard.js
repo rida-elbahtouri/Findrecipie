@@ -1,14 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link, useParams } from 'react-router-dom';
+
+import MealDetails from './MealDetails';
 
 const FoodCard = props => {
   const {
-    id, meal, img, gtdetails,
+    meal, img, id,
   } = props;
+
   return (
     <div>
-      {/* eslint-disable-next-line */ }
-      <div data-testid="div" className="foodcard" onClick={() => gtdetails(id)}>
+      <Link to={`/meal/${id}/${meal}`}>
+        {/* eslint-disable-next-line */ }
+      <div data-testid="div" className="foodcard" >
         <img data-testid="img" alt={meal} src={img} />
         <h3 data-testid="meal">
           {' '}
@@ -16,6 +21,7 @@ const FoodCard = props => {
           {' '}
         </h3>
       </div>
+      </Link>
     </div>
   );
 };

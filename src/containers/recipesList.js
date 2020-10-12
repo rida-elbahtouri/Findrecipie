@@ -33,35 +33,11 @@ class RecipesList extends React.Component {
     GetRecipe(e.target.value);
   };
 
-  gtdetails = id => {
-    const baseUrl = 'https://www.themealdb.com/api/json/v1/1/';
-    this.setState({ ingredient: [] });
-    Axios.get(`${baseUrl}/lookup.php?i=${id}`).then(res => {
-      this.setState({ details: res.data.meals });
-      this.setState({ ingredient: [] });
-      const { ingredient } = this.state;
-      for (let i = 1; i < 20; i += 1) {
-        if (
-          res.data.meals[0][`strIngredient${i}`] !== ''
-          && res.data.meals[0][`strIngredient${i}`] !== null
-        ) {
-          ingredient.push(res.data.meals[0][`strIngredient${i}`]);
-        }
-      }
-    });
-  };
   // eslint-disable-next-line
   displaydetails = () => {
     const { details } = this.state;
     if (details.length > 0) {
       const { ingredient } = this.state;
-      return (
-        <MealDetails
-          ingredient={ingredient}
-          details={details[0]}
-          colsedetails={this.colsedetails}
-        />
-      );
     }
   };
 
@@ -110,7 +86,7 @@ class RecipesList extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  filter: state,
+  filter: state.recipe,
 });
 
 const mapDispatchToProps = dispatch => ({
