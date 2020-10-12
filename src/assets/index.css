@@ -39,15 +39,9 @@ body {
 }
 
 .mealdetails {
-  position: fixed;
-  top: 10%;
-  left: 10%;
-  right: 10%;
+  margin: 0 auto;
   overflow: auto;
   background-color: rgba(255, 255, 255, 0.9);
-  width: 80%;
-  max-width: 1200px;
-  height: 80%;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   text-align: center;
