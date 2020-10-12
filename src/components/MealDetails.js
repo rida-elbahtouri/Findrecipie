@@ -7,19 +7,19 @@ const MealDetails = (props) => {
       <button onClick={props.colsedetails} type="button">
         X
       </button>
-      <h3> {meal.strMeal} </h3>
+      <h3 data-testid="mealname"> {meal.strMeal} </h3>
       <p>
         <span>Food area :</span>
-        <span> {meal.strArea} </span>{' '}
+        <span data-testid="fooderea" > {meal.strArea} </span>{' '}
       </p>
       <h4>Ingredients</h4>
       <ul className="ingredientList">
         {props.ingredient.map((ing) => (
-          <li key={ing}>{ing}</li>
+          <li data-testid={ing} key={ing}>{ing}</li>
         ))}
       </ul>
       <h4>How to make it:</h4>
-      <p>{meal.strInstructions}</p>
+      <p data-testid="mealinstr">{meal.strInstructions}</p>
     </div>
   );
 };

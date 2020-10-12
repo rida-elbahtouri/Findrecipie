@@ -10,7 +10,7 @@ const FilterMeals = (props) => {
           ---{' '}
         </option>
         {props.category.map((cat) => (
-          <option key={cat.strCategory}>{cat.strCategory}</option>
+          <option data-testid={cat.strCategory} key={cat.strCategory}>{cat.strCategory}</option>
         ))}
       </select>
     </div>
