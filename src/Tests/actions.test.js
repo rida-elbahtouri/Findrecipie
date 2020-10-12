@@ -1,4 +1,4 @@
-import GetRecipe from '../actions';
+import GetRecipe,{getDetails} from '../actions';
 
 describe('actions', () => {
   it('should get recipe data', () => {
@@ -9,4 +9,12 @@ describe('actions', () => {
     };
     expect(GetRecipe(data)).toEqual(expectedAction);
   });
+});
+it('should get meal details', () => {
+  const data = [{ name: 'meal' }];
+  const expectedAction = {
+    type: 'GETDETAILS',
+    payload: data,
+  };
+  expect(getDetails(data)).toEqual(expectedAction);
 });
