@@ -1,6 +1,4 @@
-export const GetRecipe = (data) => {
-  return {
-    type: 'GETRECIPE',
-    payload: data,
-  };
-};
+export const GetRecipe = data => ({
+  type: 'GETRECIPE',
+  payload: data,
+});
