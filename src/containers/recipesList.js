@@ -14,6 +14,7 @@ class RecipesList extends React.Component {
     this.state = {
       recipe: [],
       category: [],
+      prefilter:null
     };
   }
 
@@ -22,22 +23,27 @@ class RecipesList extends React.Component {
     Axios.get(`${baseUrl}/categories.php`).then(res => {
       this.setState({ category: res.data.categories });
     });
+    this.getdata(this.props.filter)
   }
 
   handlechanges = e => {
     this.setState({ recipe: [] });
     const { GetRecipe } = this.props;
     GetRecipe(e.target.value);
+    this.getdata(e.target.value)
   };
-
+  getdata = (filter) =>{
+ 
+    const baseUrl = 'https://www.themealdb.com/api/json/v1/1/';
+    Axios.get(`${baseUrl}/filter.php?c=${filter}`).then(res => {
+      this.setState({ recipe: res.data.meals });
+      this.setState({prefilter:filter})
+    });
+  }
   diplaymeals = () => {
     let meals = null;
     const { filter } = this.props;
     if (filter !== 'all') {
-      const baseUrl = 'https://www.themealdb.com/api/json/v1/1/';
-      Axios.get(`${baseUrl}/filter.php?c=${filter}`).then(res => {
-        this.setState({ recipe: res.data.meals });
-      });
       const { recipe } = this.state;
       meals = recipe.map(meal => (
         <FoodCard
@@ -54,7 +60,7 @@ class RecipesList extends React.Component {
 
     return meals;
   };
-
+ 
   render() {
     const { category } = this.state;
     return (
