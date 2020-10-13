@@ -76,7 +76,7 @@ class RecipesList extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  filter: state.recipe,
+  filter: state.filter,
 });
 
 const mapDispatchToProps = dispatch => ({

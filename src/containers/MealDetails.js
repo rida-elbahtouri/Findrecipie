@@ -54,7 +54,7 @@ const MealDetails = props => {
           <h4>Ingredients</h4>
           <ul className="ingredientList">
             {ingredient.map(ing => (
-              <li data-testid={ing} key={ing}>{ing}</li>
+              <li data-testid={ing} key={Math.floor(Math.random() * 1000)*ing.length}>{ing}</li>
             ))}
           </ul>
           <h4>How to make it:</h4>
@@ -85,7 +85,6 @@ MealDetails.propTypes = {
   getDetails: PropTypes.func.isRequired,
   // eslint-disable-next-line
   details: PropTypes.object.isRequired,
-  // eslint-disable-next-line
-  ingredient: PropTypes.array.isRequired,
+
 };
 export default connect(mapStateToProps, mapDispatchToProps)(MealDetails);

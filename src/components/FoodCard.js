@@ -25,7 +25,7 @@ const FoodCard = props => {
 };
 
 FoodCard.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
   meal: PropTypes.string.isRequired,
 };

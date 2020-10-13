@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-const recipeReducer = (state = 'all', action) => {
+const FilterReducer = (state = 'all', action) => {
   switch (action.type) {
     case 'GETRECIPE':
       return action.payload;
@@ -20,7 +20,7 @@ const detailsReducer = (state = {}, action) => {
 };
 
 const rootReducer = combineReducers({
-  recipe: recipeReducer,
+  filter: FilterReducer,
   details: detailsReducer,
 });
 
