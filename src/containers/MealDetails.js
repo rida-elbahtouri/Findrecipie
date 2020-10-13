@@ -54,7 +54,7 @@ const MealDetails = props => {
           <h4>Ingredients</h4>
           <ul className="ingredientList">
             {ingredient.map(ing => (
-              <li data-testid={ing} key={Math.floor(Math.random() * 1000)*ing.length}>{ing}</li>
+              <li data-testid={ing} key={Math.floor(Math.random() * 1000) * ing.length}>{ing}</li>
             ))}
           </ul>
           <h4>How to make it:</h4>
