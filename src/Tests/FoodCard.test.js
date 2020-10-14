@@ -14,7 +14,7 @@ afterEach(cleanup);
 it('render the img in the dom', () => {
   const { getByTestId } = render(
     <Router>
-      <FoodCard meal="meal name" img="img url" id={1} />
+      <FoodCard meal="meal name" img="img url" id="1" />
     </Router>,
   );
   expect(getByTestId('img')).toBeInTheDocument();
@@ -25,7 +25,7 @@ it('render the img in the dom', () => {
   const { getByTestId } = render(
     <Provider store={store}>
       <Router>
-        <FoodCard meal="meal name" img="img url" id={1} />
+        <FoodCard meal="meal name" img="img url" id="1" />
       </Router>
     </Provider>,
   );
