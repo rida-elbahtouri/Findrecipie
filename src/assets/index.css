@@ -1,0 +1,122 @@
+body {
+  background:
+    -webkit-gradient(
+      linear,
+      left top,
+      right top,
+      from(#ec6f66),
+      to(#f3a183)
+    );
+  background: linear-gradient(to right, #abbaab, #fff);
+}
+
+.welcome {
+  grid-column: 1/5;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.welcome h1 {
+  color: #a63d40;
+  font-weight: bold;
+}
+
+.welcome h2 {
+  line-height: 220%;
+  font-size: 24px;
+}
+
+.list {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr) [4];
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
+
+.list img {
+  width: 100%;
+}
+
+.mealdetails {
+  margin: 0 auto;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.9);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 10px;
+}
+
+.ingredientList {
+  text-align: left;
+  margin-left: 60%;
+  -webkit-transform: translate(-50%);
+  transform: translate(-50%);
+}
+
+.mealdetails button {
+  background-color: #834040;
+  border: none;
+  border: 0.2px solid #a8a8a8;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 50px;
+  font-size: 24px;
+  color: white;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+
+.mealdetails button:hover {
+  background-color: red;
+}
+
+.mealdetails h4,
+h3 {
+  color: #363434;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 34px;
+  margin-bottom: 5px;
+}
+
+.mealdetails p {
+  font-size: 22px;
+}
+
+.mealdetails li {
+  font-size: 20px;
+}
+
+.filter-form {
+  text-align: center;
+}
+
+.filter {
+  width: 300px;
+  font-size: 24px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+.foodcard {
+  border: 1px solid gray;
+  padding: 4px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  min-height: 350px;
+  cursor: pointer;
+}
+
+.foodcard h3 {
+  font-size: 22px;
+}
+
+@media only screen and (max-width: 700px) {
+  .list {
+    grid-template-columns: 1fr;
+  }
+}
