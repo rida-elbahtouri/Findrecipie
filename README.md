@@ -4,7 +4,7 @@ This project is a React webapp that allow users to search for recipes by categor
 
 ### Live Link
 
-[click here](https://finderecipe.herokuapp.com/)
+[click here](https://findrecipie.vercel.app/)
 
 ### Presentition
 
@@ -94,3 +94,4 @@ Give a ⭐️ if you like this project!
 - <a href="https://reactjs.org/" target="_blank">React js</a>
 - <a href="https://redux.js.org" target="_blank">Redux JS</a>
 - <a href="https://www.themealdb.com/api.php" target="_blank">Themealdb </a>(The Api Used to get data)
+- <a href="https://vercel.com" target="_blanck">Vercel </a> (The WebSite Used To Deploy The App)
